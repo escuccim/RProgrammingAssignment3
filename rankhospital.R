@@ -13,10 +13,10 @@ rankhospital <- function(state, outcome, num = "best") {
         stop("invalid outcome")
     }
     
-    # convert the data to numeric
-    outcome_data[, 11] <- as.numeric(outcome_data[, 11])
-    outcome_data[, 17] <- as.numeric(outcome_data[, 17])
-    outcome_data[, 23] <- as.numeric(outcome_data[, 23])
+    # convert the data to numeric - suppress the coercion warnings
+    suppressWarnings(outcome_data[, 11] <- as.numeric(outcome_data[, 11]))
+    suppressWarnings(outcome_data[, 17] <- as.numeric(outcome_data[, 17]))
+    suppressWarnings(outcome_data[, 23] <- as.numeric(outcome_data[, 23]))
     
     # set column based on outcome 
     if(outcome == 'heart attack'){

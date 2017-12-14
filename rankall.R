@@ -22,10 +22,10 @@ rankall <- function(outcome, num = "best") {
         col_number <- 23
     }
     
-    # convert the data to numeric
-    outcome_data[, 11] <- as.numeric(outcome_data[, 11])
-    outcome_data[, 17] <- as.numeric(outcome_data[, 17])
-    outcome_data[, 23] <- as.numeric(outcome_data[, 23])
+    # convert the data to numeric - suppress the coercion warnings
+    suppressWarnings(outcome_data[, 11] <- as.numeric(outcome_data[, 11]))
+    suppressWarnings(outcome_data[, 17] <- as.numeric(outcome_data[, 17]))
+    suppressWarnings(outcome_data[, 23] <- as.numeric(outcome_data[, 23]))
     
     # loop through each state and find the hospital of the given rank
     for(i in 1:length(states)){
